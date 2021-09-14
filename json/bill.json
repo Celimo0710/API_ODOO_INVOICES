@@ -1,0 +1,107 @@
+[
+    {
+        "FacturaCompra": {
+            "Apikey": "sNY7sW32qj6E",
+            "Clave": "50602032100310165469600800001010000000004187654321",
+            "CodigoActividad": "741402",
+            "NumeroConsecutivo": "00800001010000000004",
+            "FechaEmision": "2021-03-02T14:24:18-06:00",
+            "Receptor": {
+                "Nombre": "CTCG",
+                "Identificacion": {
+                    "Tipo": "02",
+                    "Numero": "188889999"
+                },
+                "Ubicacion": {
+                    "Provincia": "2",
+                    "Canton": "03",
+                    "Distrito": "01",
+                    "OtrasSenas": "OTROS CARTAGO"
+                },
+                "Telefono": {
+                    "CodigoPais": "+506",
+                    "NumTelefono": "22302230"
+                },
+                "CorreoElectronico": "test@correo.com"
+            },
+            "Emisor": {
+                "Nombre": "NOMBRE PROVEEDOR",
+                "Identificacion": {
+                    "Tipo": "02",
+                    "Numero": "3101654696"
+                },
+                "Ubicacion": {
+                    "Provincia": "5",
+                    "Canton": "01",
+                    "Distrito": "01",
+                    "OtrasSenas": "Cartago"
+                },
+                "Telefono": {
+                    "CodigoPais": "506",
+                    "NumTelefono": "27718169"
+                },
+                "CorreoElectronico": "catec.pz@gmail.com"
+            },
+            "CondicionVenta": "09",
+            "MedioPago": "01",
+            "Items": {
+                "0": {
+                    "Linea": {
+                        "NumeroLinea": "1",
+                        "Cuenta": "NOMBRE CUENTA GASTO",
+                        "CodigoCabys": "8311100000000",
+                        "Cantidad": "1.00",
+                        "UnidadMedida": "Os",
+                        "Detalle": "SALARIO",
+                        "PrecioUnitario": "6500.00",
+                        "MontoTotal": "4000.00",
+                        "SubTotal": "4000.00",
+                        "Tipo": "consu",
+                        "Impuesto": {
+                            "Codigo": "01",
+                            "Tipo": "",
+                            "CodigoTarifa": "08",
+                            "Tarifa": "13.00",
+                            "Monto": "1823445.00"
+                        }
+                    },
+                    "ImpuestoNeto": "1823445.00",
+                    "MontoTotalLinea": "15849945.00"
+                },
+                "1": {
+                    "Linea": {
+                        "NumeroLinea": "1",
+                        "Cuenta": "NOMBRE CUENTA GASTO",
+                        "CodigoCabys": "8311100000000",
+                        "Cantidad": "1.00",
+                        "UnidadMedida": "Os",
+                        "Detalle": "SALARIO",
+                        "PrecioUnitario": "500.00",
+                        "MontoTotal": "500.00",
+                        "SubTotal": "500.00",
+                        "Tipo": "consu",
+                        "Impuesto": {
+                            "Codigo": "01",
+                            "Tipo": "",
+                            "CodigoTarifa": "08",
+                            "Tarifa": "13.00",
+                            "Monto": "1823445.00"
+                        }
+                    },
+                    "ImpuestoNeto": "1823445.00",
+                    "MontoTotalLinea": "15849945.00"
+                }
+            },
+            "ResumenFactura": {
+                "TotalGravado": "14026500.00",
+                "TotalExentos": "0.00",
+                "TotalExonerado": "0.00",
+                "TotalVenta": "14026500.00",
+                "TotalDescuentos": "0.00",
+                "TotalVentaNeta": "14026500.00",
+                "TotalImpuesto": "1823445.00",
+                "TotalComprobante": "15849945.00"
+            }
+        }
+    }
+]
