@@ -205,39 +205,40 @@ def compras():
             if request.json[0]['FacturaCompra']['Emisor']['Ubicacion']['Canton'] == "06":
                 canton = "GUACIMO"
         # Validación de las entradas con el identificador de las empresas
-        if request.json[0]['FacturaCompra']['Receptor']['Nombre'] == "CTPZ":
+        if request.json[0]['FacturaCompra']['Receptor']['codigosede'] == "CTPZ":
             empresa_id = 6
             empresa_nombre = "Corporación Académica Tecnológica CR PZ S.A."
-        if request.json[0]['FacturaCompra']['Receptor']['Nombre'] == "EHLB":
+        if request.json[0]['FacturaCompra']['Receptor']['codigosede'] == "EHLB":
             empresa_id = 9
             empresa_nombre = "CATEC Libería"
-        if request.json[0]['FacturaCompra']['Receptor']['Nombre'] == "EHSC":
+        if request.json[0]['FacturaCompra']['Receptor']['codigosede'] == "EHSC":
             empresa_id = 11
             empresa_nombre = "CATEC Santa Cruz"
-        if request.json[0]['FacturaCompra']['Receptor']['Nombre'] == "GTGF":
+        if request.json[0]['FacturaCompra']['Receptor']['codigosede'] == "GTGF":
             empresa_id = 8
             empresa_nombre = "CATEC Golfito"
-        if request.json[0]['FacturaCompra']['Receptor']['Nombre'] == "EHNC":
+        if request.json[0]['FacturaCompra']['Receptor']['codigosede'] == "EHNC":
             empresa_id = 10
             empresa_nombre = "CATEC Nicoya"
-        if request.json[0]['FacturaCompra']['Receptor']['Nombre'] == "CTCN":
+        if request.json[0]['FacturaCompra']['Receptor']['codigosede'] == "CTCN":
             empresa_id = 7
             empresa_nombre = "CATEC Ciudad Nelly"
-        if request.json[0]['FacturaCompra']['Receptor']['Nombre'] == "CDECT":
+        if request.json[0]['FacturaCompra']['Receptor']['codigosede'] == "CDECT":
             empresa_id = 13
             empresa_nombre = "CDE Cartago"
-        if request.json[0]['FacturaCompra']['Receptor']['Nombre'] == "CDELB":
+        if request.json[0]['FacturaCompra']['Receptor']['codigosede'] == "CDELB":
             empresa_id = 14
             empresa_nombre = "CDE Liberia"
-        if request.json[0]['FacturaCompra']['Receptor']['Nombre'] == "CDELM":
+        if request.json[0]['FacturaCompra']['Receptor']['codigosede'] == "CDELM":
             empresa_id = 15
             empresa_nombre = "CDE Limón"
-        if request.json[0]['FacturaCompra']['Receptor']['Nombre'] == "CTCG":
+        if request.json[0]['FacturaCompra']['Receptor']['codigosede'] == "CTCG":
             empresa_id = 4
             empresa_nombre = "CATEC Cartago"
-        if request.json[0]['FacturaCompra']['Receptor']['Nombre'] == "CTLM":
+        if request.json[0]['FacturaCompra']['Receptor']['codigosede'] == "CTLM":
             empresa_id = 5
             empresa_nombre = "CATEC Limón"
+        print(compra.usuario(int(empresa_id)))
         # Objeto json para la estructura del proveedor
         new_proveedor = {
             "name": request.json[0]['FacturaCompra']['Emisor']['Nombre'],
@@ -294,7 +295,7 @@ def compras():
         for item in request.json[0]['FacturaCompra']['Items']:
             # Objeto json para la estructura del producto
             new_product = {
-                'name': request.json[0]['FacturaCompra']['Items'][item]['Linea']['Cuenta'],
+                'name': request.json[0]['FacturaCompra']['Items'][item]['Linea']['Detalle'],
                 'description': request.json[0]['FacturaCompra']['Items'][item]['Linea']['Detalle'],
                 'default_code': request.json[0]['FacturaCompra']['Items'][item]['Linea']['CodigoCabys'],
                 'list_price': request.json[0]['FacturaCompra']['Items'][item]['Linea']['PrecioUnitario'],
@@ -312,7 +313,7 @@ def compras():
                     print("Error intencional")
             except:
                 id_producto = compra.producto(new_product)
-                print("Producto no existente")
+                print("Producto no existente", id_producto)
             # Creación de las líneas dentro de la factura creada anteriormente, identificada con
             # el id_factura, requiere tener un id de la factura y id de producto para que se cree.
             try:
@@ -324,7 +325,7 @@ def compras():
                     'product_id': id_producto,
                     'quantity': float(request.json[0]['FacturaCompra']['Items'][item]['Linea']['Cantidad']),
                     'price_unit': float(request.json[0]['FacturaCompra']['Items'][item]['Linea']['PrecioUnitario']),
-                    'account_id': 19,
+                    'account_id': 19, #Apunte Contable, se debe colocar depende de la empresa
                     'tax_ids': [1],
                     'tax_line_id': 1,
                     'name': request.json[0]['FacturaCompra']['Items'][item]['Linea']['Detalle'],
@@ -574,6 +575,7 @@ def ventas():
             empresa_id = 5
             empresa_nombre = "CATEC Limón"
         # Objeto json para la estructura del cliente
+        print(venta.usuario(int(empresa_id)))
         new_cliente = {
             "name": request.json[0]['FacturaVenta']['Receptor']['Nombre'],
             "vat": request.json[0]['FacturaVenta']['Receptor']['Identificacion']['Numero'],

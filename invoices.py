@@ -23,6 +23,7 @@ db = 'desarrollossiacooprl-catec-test-3215387'
 # Credenciales de acceso que crea los registros
 username = 'desarrollo@siacooprl.com'
 password = 'desarrollador'
+userid = 6
 # Autenticación al servidor
 common = xmlrpc.client.ServerProxy('{}/xmlrpc/2/common'.format(
     url), verbose=False, use_datetime=True, context=ssl._create_unverified_context())
@@ -148,3 +149,10 @@ def linea(producto):
         return (new_line)
     except:
         return ("Línea no fue creada...")
+
+def usuario(companyid):
+    try:
+        usuario = models.execute_kw(db, uid, password, 'res.users', 'write', [[userid], {'company_id': companyid}])
+        return usuario
+    except:
+        return ("Usuario no pudo cambiar de compañía")
