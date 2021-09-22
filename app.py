@@ -17,7 +17,6 @@ app = Flask(__name__)
 
 # Ruta para la creación de factura de compra
 
-
 @app.route('/compra', methods=['POST'])
 def compras():
     try:

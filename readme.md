@@ -25,4 +25,3 @@ https://www.odoo.com/documentation/13.0/developer/misc/api/odoo.html
 Notas:
 13/09/2021 CU: Aún no auntentica con el APIKEY
 13/09/2021 CU: Productos y gastos se registran mediante la inserción de los productos en el JSON
-
