@@ -237,6 +237,7 @@ def compras():
         if request.json[0]['FacturaCompra']['Receptor']['codigosede'] == "CTLM":
             empresa_id = 5
             empresa_nombre = "CATEC Limón"
+        #Cambio de empresa del Usuario
         print(compra.usuario(int(empresa_id)))
         # Objeto json para la estructura del proveedor
         new_proveedor = {
