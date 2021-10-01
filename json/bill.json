@@ -1,107 +1,356 @@
 [
-    {
-        "FacturaCompra": {
-            "Apikey": "sNY7sW32qj6E",
-            "Clave": "50602032100310165469600800001010000000004187654321",
-            "CodigoActividad": "741402",
-            "NumeroConsecutivo": "00800001010000000004",
-            "FechaEmision": "2021-03-02T14:24:18-06:00",
-            "Receptor": {
-                "Nombre": "CTCG",
-                "Identificacion": {
-                    "Tipo": "02",
-                    "Numero": "188889999"
-                },
-                "Ubicacion": {
-                    "Provincia": "2",
-                    "Canton": "03",
-                    "Distrito": "01",
-                    "OtrasSenas": "OTROS CARTAGO"
-                },
-                "Telefono": {
-                    "CodigoPais": "+506",
-                    "NumTelefono": "22302230"
-                },
-                "CorreoElectronico": "test@correo.com"
-            },
-            "Emisor": {
-                "Nombre": "NOMBRE PROVEEDOR",
-                "Identificacion": {
-                    "Tipo": "02",
-                    "Numero": "3101654696"
-                },
-                "Ubicacion": {
-                    "Provincia": "5",
-                    "Canton": "01",
-                    "Distrito": "01",
-                    "OtrasSenas": "Cartago"
-                },
-                "Telefono": {
-                    "CodigoPais": "506",
-                    "NumTelefono": "27718169"
-                },
-                "CorreoElectronico": "catec.pz@gmail.com"
-            },
-            "CondicionVenta": "09",
-            "MedioPago": "01",
-            "Items": {
-                "0": {
-                    "Linea": {
-                        "NumeroLinea": "1",
-                        "Cuenta": "NOMBRE CUENTA GASTO",
-                        "CodigoCabys": "8311100000000",
-                        "Cantidad": "1.00",
-                        "UnidadMedida": "Os",
-                        "Detalle": "SALARIO",
-                        "PrecioUnitario": "6500.00",
-                        "MontoTotal": "4000.00",
-                        "SubTotal": "4000.00",
-                        "Tipo": "consu",
-                        "Impuesto": {
-                            "Codigo": "01",
-                            "Tipo": "",
-                            "CodigoTarifa": "08",
-                            "Tarifa": "13.00",
-                            "Monto": "1823445.00"
-                        }
-                    },
-                    "ImpuestoNeto": "1823445.00",
-                    "MontoTotalLinea": "15849945.00"
-                },
-                "1": {
-                    "Linea": {
-                        "NumeroLinea": "1",
-                        "Cuenta": "NOMBRE CUENTA GASTO",
-                        "CodigoCabys": "8311100000000",
-                        "Cantidad": "1.00",
-                        "UnidadMedida": "Os",
-                        "Detalle": "SALARIO",
-                        "PrecioUnitario": "500.00",
-                        "MontoTotal": "500.00",
-                        "SubTotal": "500.00",
-                        "Tipo": "consu",
-                        "Impuesto": {
-                            "Codigo": "01",
-                            "Tipo": "",
-                            "CodigoTarifa": "08",
-                            "Tarifa": "13.00",
-                            "Monto": "1823445.00"
-                        }
-                    },
-                    "ImpuestoNeto": "1823445.00",
-                    "MontoTotalLinea": "15849945.00"
-                }
-            },
-            "ResumenFactura": {
-                "TotalGravado": "14026500.00",
-                "TotalExentos": "0.00",
-                "TotalExonerado": "0.00",
-                "TotalVenta": "14026500.00",
-                "TotalDescuentos": "0.00",
-                "TotalVentaNeta": "14026500.00",
-                "TotalImpuesto": "1823445.00",
-                "TotalComprobante": "15849945.00"
-            }
-        }
-    }
+	{
+		"FacturaCompra": {
+			"Apikey": "sNY7sW32qj6E",
+			"Clave": "50603012100310200722329300002010000001552100000000",
+			"CodigoActividad": "521101",
+			"NumeroConsecutivo": "29300002010000001552",
+			"FechaEmision": "2021-01-03T04:31:22",
+			"Emisor": {
+				"Nombre": "CORPORACION SUPERMERCADOS UNIDOS S.R.L.",
+				"Identificacion": {
+					"Tipo": "02",
+					"Numero": "3102007223"
+				},
+				"Ubicacion": {
+					"Provincia": "1",
+					"Canton": "09",
+					"Distrito": "03",
+					"OtrasSenas": "Parque Empresarial Forum II"
+				},
+				"Telefono": {
+					"CodigoPais": "506",
+					"NumTelefono": "25828400"
+				},
+				"CorreoElectronico": "dtecr.prod@einvoicing.signature-cloud.com"
+			},
+			"Receptor": {
+				"Nombre": "COORPORACION ACADEMICA TECNOLOGIC CR PZSA",
+				"Identificacion": {
+					"Tipo": "02",
+					"Numero": "3101654696"
+				},
+				"Ubicacion": null,
+				"Telefono": {
+					"CodigoPais": "506",
+					"NumTelefono": "27718169"
+				},
+				"CorreoElectronico": "catecfacturaconta@gmail.com",
+				"codigosede": "CTPZ"
+			},
+			"CondicionVenta": "02",
+			"MedioPago": "02",
+			"Items": {
+				"0": {
+					"Linea": {
+						"NumeroLinea": "1",
+						"CodigoCabys": "2227000000100",
+						"Cantidad": "1",
+						"UnidadMedida": "Unid",
+						"Cuenta": null,
+						"Detalle": "DELEI NAR565",
+						"PrecioUnitario": "2964.60177",
+						"MontoTotal": "2964.60177",
+						"SubTotal": "2964.60177",
+						"Impuesto": {
+							"Codigo": "01",
+							"Tipo": "??",
+							"CodigoTarifa": "08",
+							"Tarifa": "13.00",
+							"Monto": "385.39823"
+						},
+						"ImpuestoNeto": "385.39823",
+						"MontoTotalLinea": "3350.00000",
+						"Tipo": "consu"
+					}
+				},
+				"1": {
+					"Linea": {
+						"NumeroLinea": "2",
+						"CodigoCabys": "2922007990000",
+						"Cantidad": "1",
+						"UnidadMedida": "Unid",
+						"Cuenta": null,
+						"Detalle": "BOLSA COMPRA",
+						"PrecioUnitario": "619.46903",
+						"MontoTotal": "619.46903",
+						"SubTotal": "619.46903",
+						"Impuesto": {
+							"Codigo": "01",
+							"Tipo": "??",
+							"CodigoTarifa": "08",
+							"Tarifa": "13.00",
+							"Monto": "80.53097"
+						},
+						"ImpuestoNeto": "80.53097",
+						"MontoTotalLinea": "700.00000",
+						"Tipo": "consu"
+					}
+				},
+				"2": {
+					"Linea": {
+						"NumeroLinea": "3",
+						"CodigoCabys": "2342000000300",
+						"Cantidad": "1",
+						"UnidadMedida": "Unid",
+						"Cuenta": null,
+						"Detalle": "BARQUIL CHOC",
+						"PrecioUnitario": "1097.34513",
+						"MontoTotal": "1097.34513",
+						"SubTotal": "1097.34513",
+						"Impuesto": {
+							"Codigo": "01",
+							"Tipo": "??",
+							"CodigoTarifa": "08",
+							"Tarifa": "13.00",
+							"Monto": "142.65487"
+						},
+						"ImpuestoNeto": "142.65487",
+						"MontoTotalLinea": "1240.00000",
+						"Tipo": "consu"
+					}
+				},
+				"3": {
+					"Linea": {
+						"NumeroLinea": "4",
+						"CodigoCabys": "3532303000100",
+						"Cantidad": "1",
+						"UnidadMedida": "Unid",
+						"Cuenta": null,
+						"Detalle": "BIOLAND SHAM",
+						"PrecioUnitario": "4513.27434",
+						"MontoTotal": "4513.27434",
+						"SubTotal": "4513.27434",
+						"Impuesto": {
+							"Codigo": "01",
+							"Tipo": "??",
+							"CodigoTarifa": "08",
+							"Tarifa": "13.00",
+							"Monto": "586.72566"
+						},
+						"ImpuestoNeto": "586.72566",
+						"MontoTotalLinea": "5100.00000",
+						"Tipo": "consu"
+					}
+				},
+				"4": {
+					"Linea": {
+						"NumeroLinea": "5",
+						"CodigoCabys": "2343000000000",
+						"Cantidad": "1",
+						"UnidadMedida": "Unid",
+						"Cuenta": null,
+						"Detalle": "DONA X6",
+						"PrecioUnitario": "1362.83186",
+						"MontoTotal": "1362.83186",
+						"SubTotal": "1362.83186",
+						"Impuesto": {
+							"Codigo": "01",
+							"Tipo": "??",
+							"CodigoTarifa": "08",
+							"Tarifa": "13.00",
+							"Monto": "177.16814"
+						},
+						"ImpuestoNeto": "177.16814",
+						"MontoTotalLinea": "1540.00000",
+						"Tipo": "consu"
+					}
+				},
+				"5": {
+					"Linea": {
+						"NumeroLinea": "6",
+						"CodigoCabys": "0112203010000",
+						"Cantidad": "1",
+						"UnidadMedida": "Unid",
+						"Cuenta": null,
+						"Detalle": "MAIZ SABEM P",
+						"PrecioUnitario": "477.87611",
+						"MontoTotal": "477.87611",
+						"SubTotal": "477.87611",
+						"Impuesto": {
+							"Codigo": "01",
+							"Tipo": "??",
+							"CodigoTarifa": "08",
+							"Tarifa": "13.00",
+							"Monto": "62.12389"
+						},
+						"ImpuestoNeto": "62.12389",
+						"MontoTotalLinea": "540.00000",
+						"Tipo": "consu"
+					}
+				},
+				"6": {
+					"Linea": {
+						"NumeroLinea": "7",
+						"CodigoCabys": "2349002011400",
+						"Cantidad": "1",
+						"UnidadMedida": "Unid",
+						"Cuenta": null,
+						"Detalle": "4PK SNACK",
+						"PrecioUnitario": "1946.90265",
+						"MontoTotal": "1946.90265",
+						"SubTotal": "1946.90265",
+						"Impuesto": {
+							"Codigo": "01",
+							"Tipo": "??",
+							"CodigoTarifa": "08",
+							"Tarifa": "13.00",
+							"Monto": "253.09735"
+						},
+						"ImpuestoNeto": "253.09735",
+						"MontoTotalLinea": "2200.00000",
+						"Tipo": "consu"
+					}
+				},
+				"7": {
+					"Linea": {
+						"NumeroLinea": "8",
+						"CodigoCabys": "2399905000200",
+						"Cantidad": "2",
+						"UnidadMedida": "Unid",
+						"Cuenta": null,
+						"Detalle": "TANG 4F 80G",
+						"PrecioUnitario": "486.72567",
+						"MontoTotal": "973.45133",
+						"SubTotal": "973.45133",
+						"Impuesto": {
+							"Codigo": "01",
+							"Tipo": "??",
+							"CodigoTarifa": "08",
+							"Tarifa": "13.00",
+							"Monto": "126.54867"
+						},
+						"ImpuestoNeto": "126.54867",
+						"MontoTotalLinea": "1100.00000",
+						"Tipo": "consu"
+					}
+				},
+				"8": {
+					"Linea": {
+						"NumeroLinea": "9",
+						"CodigoCabys": "2343000000000",
+						"Cantidad": "1",
+						"UnidadMedida": "Unid",
+						"Cuenta": null,
+						"Detalle": "PORCIONES",
+						"PrecioUnitario": "1469.02655",
+						"MontoTotal": "1469.02655",
+						"SubTotal": "1469.02655",
+						"Impuesto": {
+							"Codigo": "01",
+							"Tipo": "??",
+							"CodigoTarifa": "08",
+							"Tarifa": "13.00",
+							"Monto": "190.97345"
+						},
+						"ImpuestoNeto": "190.97345",
+						"MontoTotalLinea": "1660.00000",
+						"Tipo": "consu"
+					}
+				},
+				"9": {
+					"Linea": {
+						"NumeroLinea": "10",
+						"CodigoCabys": "3532306020200",
+						"Cantidad": "1",
+						"UnidadMedida": "Unid",
+						"Cuenta": null,
+						"Detalle": "AXE DARK 3PK",
+						"PrecioUnitario": "3982.30088",
+						"MontoTotal": "3982.30088",
+						"SubTotal": "3982.30088",
+						"Impuesto": {
+							"Codigo": "01",
+							"Tipo": "??",
+							"CodigoTarifa": "08",
+							"Tarifa": "13.00",
+							"Monto": "517.69912"
+						},
+						"ImpuestoNeto": "517.69912",
+						"MontoTotalLinea": "4500.00000",
+						"Tipo": "consu"
+					}
+				},
+				"10": {
+					"Linea": {
+						"NumeroLinea": "11",
+						"CodigoCabys": "2349001010100",
+						"Cantidad": "1",
+						"UnidadMedida": "Unid",
+						"Cuenta": null,
+						"Detalle": "TORTILL MAIZ",
+						"PrecioUnitario": "719.80198",
+						"MontoTotal": "719.80198",
+						"SubTotal": "719.80198",
+						"Impuesto": {
+							"Codigo": "01",
+							"Tipo": "??",
+							"CodigoTarifa": "02",
+							"Tarifa": "1.00",
+							"Monto": "7.19802"
+						},
+						"ImpuestoNeto": "7.19802",
+						"MontoTotalLinea": "727.00000",
+						"Tipo": "consu"
+					}
+				},
+				"11": {
+					"Linea": {
+						"NumeroLinea": "12",
+						"CodigoCabys": "2399905000200",
+						"Cantidad": "2",
+						"UnidadMedida": "Unid",
+						"Cuenta": null,
+						"Detalle": "TANG 4T 80G",
+						"PrecioUnitario": "486.72567",
+						"MontoTotal": "973.45133",
+						"SubTotal": "973.45133",
+						"Impuesto": {
+							"Codigo": "01",
+							"Tipo": "??",
+							"CodigoTarifa": "08",
+							"Tarifa": "13.00",
+							"Monto": "126.54867"
+						},
+						"ImpuestoNeto": "126.54867",
+						"MontoTotalLinea": "1100.00000",
+						"Tipo": "consu"
+					}
+				},
+				"12": {
+					"Linea": {
+						"NumeroLinea": "13",
+						"CodigoCabys": "3532306020400",
+						"Cantidad": "1",
+						"UnidadMedida": "Unid",
+						"Cuenta": null,
+						"Detalle": "REXONA BAMBO",
+						"PrecioUnitario": "1973.45133",
+						"MontoTotal": "1973.45133",
+						"SubTotal": "1973.45133",
+						"Impuesto": {
+							"Codigo": "01",
+							"Tipo": "??",
+							"CodigoTarifa": "08",
+							"Tarifa": "13.00",
+							"Monto": "256.54867"
+						},
+						"ImpuestoNeto": "256.54867",
+						"MontoTotalLinea": "2230.00000",
+						"Tipo": "consu"
+					}
+				}
+			},
+			"ResumenFactura": {
+				"TotalGravado": "23073.78429",
+				"TotalExentos": "0.00000",
+				"TotalExonerado": "0.00000",
+				"TotalVenta": "23073.78429",
+				"TotalDescuentos": "0.00000",
+				"TotalVentaNeta": "23073.78429",
+				"TotalImpuesto": "2913.21571",
+				"TotalComprobante": "25987.00000"
+			}
+		}
+	}
 ]

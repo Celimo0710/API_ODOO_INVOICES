@@ -7,7 +7,7 @@
 			"NumeroConsecutivo": "00800001010000000004",
 			"FechaEmision": "2021-03-02T14:24:18-06:00",
 			"Emisor": {
-				"Nombre": "EHSC",
+				"Nombre": "EHNC",
 				"Identificacion": {
 					"Tipo": "02",
 					"Numero": "3101654696"
@@ -48,7 +48,7 @@
 				"0": {
 					"Linea": {
 						"NumeroLinea": "1",
-						"Cuenta": "ME",
+						"Cuenta": "2",
 						"CodigoCabys": "8311100000000",
 						"Cantidad": "1.00",
 						"UnidadMedida": "Os",
@@ -71,7 +71,7 @@
 				"1": {
 					"Linea": {
 						"NumeroLinea": "1",
-						"Cuenta": "MA",
+						"Cuenta": "2",
 						"CodigoCabys": "8311100000000",
 						"Cantidad": "1.00",
 						"UnidadMedida": "Os",
