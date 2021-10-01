@@ -94,6 +94,20 @@ def producto(producto):
         return (new_product)
     except:
         return ("Producto no fue creado...")
+# Función para actualizar un producto
+def producto_update(producto, id):
+    try:
+        name = producto['name']
+        description = producto['description']
+        default_code = producto['default_code']
+        list_price = producto['list_price']
+        lst_price = producto['lst_price']
+        type = producto['type']
+        update_product = models.execute_kw(db, uid, password, 'product.template', 'write', [[id], {'name': name, 'description': description, 'default_code': default_code, 'list_price': list_price, 'lst_price': lst_price, 'type': type}])
+        print("Producto actualizado...", update_product)
+        return (update_product)
+    except:
+        return ("Producto no fue actualizado...")
 # Función para crear una factura, devuelve un ID de la nueva factura
 
 

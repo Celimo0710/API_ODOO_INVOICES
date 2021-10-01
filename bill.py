@@ -88,11 +88,29 @@ def producto(producto):
         list_price = producto['list_price']
         lst_price = producto['lst_price']
         type = producto['type']
-        new_product = models.execute_kw(db, uid, password, 'product.template', 'create', [{'name': name, 'description': description, 'default_code': default_code, 'list_price': list_price, 'lst_price': lst_price, 'type': type}])
+        new_product = models.execute_kw(db, uid, password, 'product.template', 'create', [
+                                        {'name': name, 'description': description, 'default_code': default_code, 'list_price': list_price, 'lst_price': lst_price, 'type': type}])
         print("Producto creado...", new_product)
         return (new_product)
     except:
         return ("Producto no fue creado...")
+
+
+def producto_update(producto, id):
+    try:
+        name = producto['name']
+        description = producto['description']
+        default_code = producto['default_code']
+        list_price = producto['list_price']
+        lst_price = producto['lst_price']
+        type = producto['type']
+        update_product = models.execute_kw(db, uid, password, 'product.template', 'write', [[id], {
+                                           'name': name, 'description': description, 'default_code': default_code, 'list_price': list_price, 'lst_price': lst_price, 'type': type}])
+        print("Producto actualizado...", update_product)
+        return (update_product)
+    except:
+        return ("Producto no fue actualizado...")
+
 # Función para crear una factura, devuelve un ID de la nueva factura
 
 
@@ -149,9 +167,11 @@ def linea(producto):
     except:
         return ("Línea no fue creada...")
 
+
 def usuario(companyid):
     try:
-        usuario = models.execute_kw(db, uid, password, 'res.users', 'write', [[userid], {'company_id': companyid}])
+        usuario = models.execute_kw(db, uid, password, 'res.users', 'write', [
+                                    [userid], {'company_id': companyid}])
         return usuario
     except:
         return ("Usuario no pudo cambiar de compañía")

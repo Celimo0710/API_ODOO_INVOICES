@@ -310,7 +310,8 @@ def compras():
             try:
                 if str(new_product['name']) == str(compra.producto_existe(new_product)[0]['name']):
                     id_producto = compra.producto_existe(new_product)[0]['id']
-                    print("Producto Existente ")
+                    compra.producto_update(new_product, id_producto)
+                    print("Producto existente y actualizado")
                 else:
                     print("Error intencional")
             except:
@@ -2311,6 +2312,7 @@ def ventas():
             try:
                 if str(new_product['name']) == str(venta.producto_existe(new_product)[0]['name']):
                     id_producto = venta.producto_existe(new_product)[0]['id']
+                    venta.producto_update(new_product, id_producto)
                     print("Producto Existente ")
                 else:
                     print("Error intencional")
