@@ -40,8 +40,8 @@
 			},
 			"CondicionVenta": "02",
 			"MedioPago": "02",
-			"Items": {
-				"0": {
+			"Items": [
+				{
 					"Linea": {
 						"NumeroLinea": "1",
 						"CodigoCabys": "2227000000100",
@@ -64,7 +64,7 @@
 						"Tipo": "consu"
 					}
 				},
-				"1": {
+				{
 					"Linea": {
 						"NumeroLinea": "2",
 						"CodigoCabys": "2922007990000",
@@ -87,7 +87,7 @@
 						"Tipo": "consu"
 					}
 				},
-				"2": {
+				{
 					"Linea": {
 						"NumeroLinea": "3",
 						"CodigoCabys": "2342000000300",
@@ -110,7 +110,7 @@
 						"Tipo": "consu"
 					}
 				},
-				"3": {
+				{
 					"Linea": {
 						"NumeroLinea": "4",
 						"CodigoCabys": "3532303000100",
@@ -133,7 +133,7 @@
 						"Tipo": "consu"
 					}
 				},
-				"4": {
+				{
 					"Linea": {
 						"NumeroLinea": "5",
 						"CodigoCabys": "2343000000000",
@@ -156,7 +156,7 @@
 						"Tipo": "consu"
 					}
 				},
-				"5": {
+				{
 					"Linea": {
 						"NumeroLinea": "6",
 						"CodigoCabys": "0112203010000",
@@ -179,7 +179,7 @@
 						"Tipo": "consu"
 					}
 				},
-				"6": {
+				{
 					"Linea": {
 						"NumeroLinea": "7",
 						"CodigoCabys": "2349002011400",
@@ -202,7 +202,7 @@
 						"Tipo": "consu"
 					}
 				},
-				"7": {
+				{
 					"Linea": {
 						"NumeroLinea": "8",
 						"CodigoCabys": "2399905000200",
@@ -225,7 +225,7 @@
 						"Tipo": "consu"
 					}
 				},
-				"8": {
+				{
 					"Linea": {
 						"NumeroLinea": "9",
 						"CodigoCabys": "2343000000000",
@@ -248,7 +248,7 @@
 						"Tipo": "consu"
 					}
 				},
-				"9": {
+				{
 					"Linea": {
 						"NumeroLinea": "10",
 						"CodigoCabys": "3532306020200",
@@ -271,7 +271,7 @@
 						"Tipo": "consu"
 					}
 				},
-				"10": {
+				{
 					"Linea": {
 						"NumeroLinea": "11",
 						"CodigoCabys": "2349001010100",
@@ -294,7 +294,7 @@
 						"Tipo": "consu"
 					}
 				},
-				"11": {
+				{
 					"Linea": {
 						"NumeroLinea": "12",
 						"CodigoCabys": "2399905000200",
@@ -317,7 +317,7 @@
 						"Tipo": "consu"
 					}
 				},
-				"12": {
+				{
 					"Linea": {
 						"NumeroLinea": "13",
 						"CodigoCabys": "3532306020400",
@@ -340,7 +340,7 @@
 						"Tipo": "consu"
 					}
 				}
-			},
+			],
 			"ResumenFactura": {
 				"TotalGravado": "23073.78429",
 				"TotalExentos": "0.00000",
