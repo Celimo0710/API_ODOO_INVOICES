@@ -297,13 +297,19 @@ def compras():
         for item in request.json[0]['FacturaCompra']['Items']:
             # Objeto json para la estructura del producto
             new_product = {
-                'name': request.json[0]['FacturaCompra']['Items'][item]['Linea']['Detalle'],
-                'description': request.json[0]['FacturaCompra']['Items'][item]['Linea']['Detalle'],
-                'default_code': request.json[0]['FacturaCompra']['Items'][item]['Linea']['CodigoCabys'],
-                'list_price': request.json[0]['FacturaCompra']['Items'][item]['Linea']['PrecioUnitario'],
-                'lst_price': request.json[0]['FacturaCompra']['Items'][item]['Linea']['PrecioUnitario'],
-                'type': request.json[0]['FacturaCompra']['Items'][item]['Linea']['Tipo']
+                'name': item['Linea']['Detalle'],
+                'description': item['Linea']['Detalle'],
+                'default_code': item['Linea']['CodigoCabys'],
+                'list_price': item['Linea']['PrecioUnitario'],
+                'lst_price': item['Linea']['PrecioUnitario'],
+                'type': item['Linea']['Tipo']
             }
+            #'name': request.json[0]['FacturaCompra']['Items'][item]['Linea']['Detalle'],
+            #    'description': request.json[0]['FacturaCompra']['Items'][item]['Linea']['Detalle'],
+            #    'default_code': request.json[0]['FacturaCompra']['Items'][item]['Linea']['CodigoCabys'],
+            #    'list_price': request.json[0]['FacturaCompra']['Items'][item]['Linea']['PrecioUnitario'],
+            #    'lst_price': request.json[0]['FacturaCompra']['Items'][item]['Linea']['PrecioUnitario'],
+            #    'type': request.json[0]['FacturaCompra']['Items'][item]['Linea']['Tipo']
             # Validación si el producto existe dentro de la base de datos para no sobreescribirlo
             # Hace una comparación de los nombres dentro de la base de datos, si este no existe,
             # crea un nuevo registro, no actualiza los datos. -----------------------------------
@@ -2299,16 +2305,22 @@ def ventas():
         for item in request.json[0]['FacturaVenta']['Items']:
             # Objeto json para la estructura del producto
             new_product = {
-                'name': request.json[0]['FacturaVenta']['Items'][item]['Linea']['Cuenta'],
-                'description': request.json[0]['FacturaVenta']['Items'][item]['Linea']['Detalle'],
-                'default_code': request.json[0]['FacturaVenta']['Items'][item]['Linea']['CodigoCabys'],
-                'list_price': request.json[0]['FacturaVenta']['Items'][item]['Linea']['PrecioUnitario'],
-                'lst_price': request.json[0]['FacturaVenta']['Items'][item]['Linea']['PrecioUnitario'],
-                'type': request.json[0]['FacturaVenta']['Items'][item]['Linea']['Tipo']
+                'name': item['Linea']['Cuenta'],
+                'description': item['Linea']['Detalle'],
+                'default_code': item['Linea']['CodigoCabys'],
+                'list_price': item['Linea']['PrecioUnitario'],
+                'lst_price': item['Linea']['PrecioUnitario'],
+                'type': item['Linea']['Tipo']
             }
             # Validación si el producto existe dentro de la base de datos para no sobreescribirlo
             # Hace una comparación de los nombres dentro de la base de datos, si este no existe,
             # crea un nuevo registro, no actualiza los datos. -----------------------------------
+            #'name': request.json[0]['FacturaVenta']['Items'][item]['Linea']['Cuenta'],
+            #    'description': request.json[0]['FacturaVenta']['Items'][item]['Linea']['Detalle'],
+            #    'default_code': request.json[0]['FacturaVenta']['Items'][item]['Linea']['CodigoCabys'],
+            #    'list_price': request.json[0]['FacturaVenta']['Items'][item]['Linea']['PrecioUnitario'],
+            #    'lst_price': request.json[0]['FacturaVenta']['Items'][item]['Linea']['PrecioUnitario'],
+            #    'type': request.json[0]['FacturaVenta']['Items'][item]['Linea']['Tipo']
             try:
                 if str(new_product['name']) == str(venta.producto_existe(new_product)[0]['name']):
                     id_producto = venta.producto_existe(new_product)[0]['id']
