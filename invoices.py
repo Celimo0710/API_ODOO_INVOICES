@@ -157,12 +157,12 @@ def linea(producto):
         price_total = producto['price_total']
         reconciled = producto['reconciled']
         blocked = producto['blocked']
-        new_line = models.execute_kw(db, uid, password, 'account.move.line', 'create', [{'move_id': move_id, 'product_id': product_id, 'journal_id': journal_id, 'quantity': quantity, 'price_unit': price_unit, 'account_id': account_id, 'tax_ids': tax_ids, 'name': name, 'debit': debit, 'credit': credit, 'amount_currency': amount_currency, 'tax_line_id': tax_line_id, 'exclude_from_invoice_tab': exclude_from_invoice_tab, 'discount': discount, 'balance': balance, 'price_subtotal': price_subtotal, 'price_total': price_total, 'reconciled': reconciled, 'blocked': blocked}])
+        new_line = models.execute_kw(db, uid, password, 'account.move.line', 'create', [{'move_id': move_id, 'product_id': product_id, 'quantity': quantity, 'price_unit': price_unit, 'account_id': account_id, 'tax_ids': tax_ids, 'tax_line_id': tax_line_id, 'name': name, 'journal_id': journal_id,
+                                     'exclude_from_invoice_tab': exclude_from_invoice_tab, 'debit': debit, 'credit': credit, 'discount': discount, 'balance': balance, 'amount_currency': amount_currency, 'price_subtotal': price_subtotal, 'price_total': price_total, 'reconciled': reconciled, 'blocked': blocked}])
         print("linea creada...", new_line)
         return (new_line)
     except:
         return ("Línea no fue creada...")
-        #, 'blocked': blocked, 'reconciled': reconciled, 'exclude_from_invoice_tab': exclude_from_invoice_tab
 
 def usuario(companyid):
     try:

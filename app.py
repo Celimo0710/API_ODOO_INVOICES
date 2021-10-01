@@ -25,6 +25,7 @@ def compras():
         # Variables locales para definir localización
         provincia = ""
         canton = ""
+        journal = 0
         # Variables locales para definir compañía asociada a la factura
         empresa_id = 0
         empresa_nombre = ""  # Variable para test
@@ -208,36 +209,47 @@ def compras():
         # Validación de las entradas con el identificador de las empresas
         if request.json[0]['FacturaCompra']['Receptor']['codigosede'] == "CTPZ":
             empresa_id = 6
+            journal = 9
             empresa_nombre = "Corporación Académica Tecnológica CR PZ S.A."
         if request.json[0]['FacturaCompra']['Receptor']['codigosede'] == "EHLB":
             empresa_id = 9
+            journal = 86
             empresa_nombre = "CATEC Libería"
         if request.json[0]['FacturaCompra']['Receptor']['codigosede'] == "EHSC":
             empresa_id = 11
+            journal = 100
             empresa_nombre = "CATEC Santa Cruz"
         if request.json[0]['FacturaCompra']['Receptor']['codigosede'] == "GTGF":
             empresa_id = 8
+            journal = 37
             empresa_nombre = "CATEC Golfito"
         if request.json[0]['FacturaCompra']['Receptor']['codigosede'] == "EHNC":
             empresa_id = 10
+            journal = 93
             empresa_nombre = "CATEC Nicoya"
         if request.json[0]['FacturaCompra']['Receptor']['codigosede'] == "CTCN":
             empresa_id = 7
+            journal = 30
             empresa_nombre = "CATEC Ciudad Nelly"
         if request.json[0]['FacturaCompra']['Receptor']['codigosede'] == "CDECT":
             empresa_id = 13
+            journal = 58
             empresa_nombre = "CDE Cartago"
         if request.json[0]['FacturaCompra']['Receptor']['codigosede'] == "CDELB":
             empresa_id = 14
+            journal = 65
             empresa_nombre = "CDE Liberia"
         if request.json[0]['FacturaCompra']['Receptor']['codigosede'] == "CDELM":
             empresa_id = 15
+            journal = 72
             empresa_nombre = "CDE Limón"
         if request.json[0]['FacturaCompra']['Receptor']['codigosede'] == "CTCG":
             empresa_id = 4
+            journal = 16
             empresa_nombre = "CATEC Cartago"
         if request.json[0]['FacturaCompra']['Receptor']['codigosede'] == "CTLM":
             empresa_id = 5
+            journal = 23
             empresa_nombre = "CATEC Limón"
         # Cambio de empresa del Usuario
         print(compra.usuario(int(empresa_id)))
@@ -278,7 +290,7 @@ def compras():
             'type': "in_invoice",
             'type_name': "Invoice",
             'to_check': 'False',
-            'journal_id': [1, "Diario de Ingresos (CRC)"],
+            'journal_id': journal,
             'company_id': int(empresa_id),
             "currency_id": [39, "CRC"],
             "invoice_line_ids": [],
@@ -2003,7 +2015,7 @@ def compras():
                     'tax_ids': int(impuesto),
                     'tax_line_id': int(impuesto),
                     'name': item['Linea']['Detalle'],
-                    'journal_id': 8,
+                    'journal_id': journal,
                     'exclude_from_invoice_tab': False,
                     'debit': 0.0,
                     'credit': 0.0,
