@@ -2381,29 +2381,29 @@ def ventas():
                         if item['Linea']['Tipo'] == 'service':
                             impuesto = cons.IMPV24
                     # Cuenta Contable
-                    if item['Linea']['Cuenta'] == "1":
+                    if item['Linea']['Cuenta'] == "4.1.01":
                         cuentaventa = cons.PCI41
-                    if item['Linea']['Cuenta'] == "2":
+                    if item['Linea']['Cuenta'] == "4.1.02":
                         cuentaventa = cons.PCI42
-                    if item['Linea']['Cuenta'] == "3":
+                    if item['Linea']['Cuenta'] == "4.2.01":
                         cuentaventa = cons.PCI43
-                    if item['Linea']['Cuenta'] == "4":
+                    if item['Linea']['Cuenta'] == "4.2.02":
                         cuentaventa = cons.PCI44
-                    if item['Linea']['Cuenta'] == "5":
+                    if item['Linea']['Cuenta'] == "4.2.03":
                         cuentaventa = cons.PCI45
-                    if item['Linea']['Cuenta'] == "6":
+                    if item['Linea']['Cuenta'] == "4.3.01":
                         cuentaventa = cons.PCI46
-                    if item['Linea']['Cuenta'] == "7":
+                    if item['Linea']['Cuenta'] == "4.5.01":
                         cuentaventa = cons.PCI47
-                    if item['Linea']['Cuenta'] == "8":
+                    if item['Linea']['Cuenta'] == "4.5.02":
                         cuentaventa = cons.PCI48
-                    if item['Linea']['Cuenta'] == "9":
+                    if item['Linea']['Cuenta'] == "4.5.03":
                         cuentaventa = cons.PCI49
-                    if item['Linea']['Cuenta'] == "10":
+                    if item['Linea']['Cuenta'] == "4.7.01":
                         cuentaventa = cons.PCI410
-                    if item['Linea']['Cuenta'] == "11":
+                    if item['Linea']['Cuenta'] == "4.7.02":
                         cuentaventa = cons.PCI411
-                    if item['Linea']['Cuenta'] == "12":
+                    if item['Linea']['Cuenta'] == "4.9.01":
                         cuentaventa = cons.PCI412
                 if empresa_id == 9:
                     if item['Linea']['Impuesto']['CodigoTarifa'] == '08':
