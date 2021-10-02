@@ -116,7 +116,7 @@ def producto_update(producto, id):
 
 def factura(factura):
     try:
-        name = factura['name']
+        #name = factura['name']
         date = factura['date']
         ref = factura['ref']
         narration = factura['narration']
@@ -130,7 +130,7 @@ def factura(factura):
         partner_id = factura['partner_id']  # res.partner
         # no_extract_requested, not_enough_credit, waiting_extraction, error_status, extract_not_ready, waiting_validation, done
         extract_state = factura['extract_state']
-        new_invoice = models.execute_kw(db, uid, password, 'account.move', 'create', [{'name': name, 'date': date, 'invoice_date': date, 'ref': ref, 'narration': narration, 'state': state, 'type': type, 'type_name': type_name, 'to_check': to_check, 'company_id': company_id,
+        new_invoice = models.execute_kw(db, uid, password, 'account.move', 'create', [{'date': date, 'invoice_date': date, 'ref': ref, 'narration': narration, 'state': state, 'type': type, 'type_name': type_name, 'to_check': to_check, 'company_id': company_id,
                                         "partner_id": partner_id, 'invoice_line_ids': invoice_line_ids, 'commercial_partner_id': partner_id, 'partner_shipping_id': partner_id, 'partner_shipping_id': partner_id, 'invoice_partner_display_name': partner_id, "extract_state": extract_state}])
         print("Factura creada...", new_invoice)
         return (new_invoice)
@@ -160,18 +160,17 @@ def linea(producto):
         price_total = producto['price_total']
         reconciled = producto['reconciled']
         blocked = producto['blocked']
-        new_line = models.execute_kw(db, uid, password, 'account.move.line', 'create', [{'move_id': move_id, 'product_id': product_id, 'quantity': quantity, 'price_unit': price_unit, 'account_id': account_id, 'tax_ids': tax_ids, 'tax_line_id': tax_line_id, 'name': name, 'journal_id': journal_id,
-                                     'exclude_from_invoice_tab': exclude_from_invoice_tab, 'debit': debit, 'credit': credit, 'discount': discount, 'balance': balance, 'amount_currency': amount_currency, 'price_subtotal': price_subtotal, 'price_total': price_total, 'reconciled': reconciled, 'blocked': blocked}])
-        print("linea creada...", new_line)
-        return (new_line)
+        partner_id = producto['partner_id']
+        new_line = models.execute_kw(db, uid, password, 'account.move.line', 'create', [{'move_id': move_id, 'account_id': account_id, 'partner_id': partner_id, 'name': name, 'credit': credit, 'quantity': quantity, 'price_unit': price_unit, 'tax_ids': tax_ids}])
+        return ("Línea creada... ", new_line)
     except:
-        return ("Línea no fue creada...")
+        return ("Línea no fue creada... ")
 
 
 def usuario(companyid):
     try:
         usuario = models.execute_kw(db, uid, password, 'res.users', 'write', [
                                     [userid], {'company_id': companyid}])
-        return usuario
+        return("Usuario cambiando a empresa #", companyid, " Resultado: ", usuario)
     except:
         return ("Usuario no pudo cambiar de compañía")

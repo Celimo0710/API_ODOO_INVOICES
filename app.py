@@ -282,10 +282,10 @@ def compras():
             print("Error al capturar ID de proveedor")
         # Objeto json para la estructura de la factura
         new_invoice = {
-            'name': request.json[0]['FacturaCompra']['ClaveCATEC'],
+            #'name': request.json[0]['FacturaCompra']['ClaveCATEC'],
             'date': request.json[0]['FacturaCompra']['FechaEmision'],
-            'ref': request.json[0]['FacturaCompra']['NumeroConsecutivo'],
-            'narration': request.json[0]['FacturaCompra']['Clave'],
+            'ref': request.json[0]['FacturaCompra']['ClaveCATEC'],
+            'narration': request.json[0]['FacturaCompra']['NumeroConsecutivo'],
             'state': "draft",
             'type': "in_invoice",
             'type_name': "Invoice",
@@ -295,7 +295,7 @@ def compras():
             "currency_id": [39, "CRC"],
             "invoice_line_ids": [],
             "partner_id": int(id),
-            "extract_state": "no_extract_requested"
+            "extract_state": "waiting_validation"
         }
         # Crea la factura utilizando la estructura de new_invoice y devuelve el número de factura
         try:
@@ -2012,7 +2012,7 @@ def compras():
                     'quantity': float(item['Linea']['Cantidad']),
                     'price_unit': float(item['Linea']['PrecioUnitario']),
                     'account_id': int(cuenta),  # Apunte Contable, se debe colocar depende de la empresa
-                    'tax_ids': int(impuesto),
+                    'tax_ids': [int(impuesto)],
                     'tax_line_id': int(impuesto),
                     'name': item['Linea']['Detalle'],
                     'journal_id': journal,
@@ -2025,10 +2025,11 @@ def compras():
                     'price_subtotal': 0.0,
                     'price_total': 0.0,
                     'reconciled': False,
-                    'blocked': False
+                    'blocked': False,
+                    'partner_id': int(id)
                 }
                 # Inserción de la nueva línea dentro de la factura mediante la función en venta
-                compra.linea(new_line)
+                print(compra.linea(new_line))
             except:
                 print("No se creó la linea")
         # Factura OK
@@ -2302,10 +2303,10 @@ def ventas():
             print("Error al capturar ID de cliente")
         # Objeto json para la estructura de la factura
         new_invoice = {
-            'name': request.json[0]['FacturaVenta']['ClaveCATEC'],
+            #'name': request.json[0]['FacturaVenta']['ClaveCATEC'],
             'date': request.json[0]['FacturaVenta']['FechaEmision'],
-            'ref': request.json[0]['FacturaVenta']['NumeroConsecutivo'],
-            'narration': request.json[0]['FacturaVenta']['Clave'],
+            'ref': request.json[0]['FacturaVenta']['ClaveCATEC'],
+            'narration': request.json[0]['FacturaVenta']['NumeroConsecutivo'],
             'state': "draft",
             'type': "out_invoice",
             'type_name': "Invoice",
@@ -2313,9 +2314,9 @@ def ventas():
             'journal_id': journal,
             'company_id': int(empresa_id),
             "currency_id": [39, "CRC"],
-            #"invoice_line_ids": [],
+            "invoice_line_ids": [],
             "partner_id": int(id),
-            "extract_state": "no_extract_requested"
+            "extract_state": "waiting_validation"
         }
         # Crea la factura utilizando la estructura de new_invoice y devuelve el número de factura
         try:
@@ -2810,9 +2811,9 @@ def ventas():
                     'product_id': id_producto,
                     'quantity': float(item['Linea']['Cantidad']),
                     'price_unit': float(item['Linea']['PrecioUnitario']),
-                    'account_id': cuentaventa,
-                    'tax_ids': impuesto,
-                    'tax_line_id': impuesto,
+                    'account_id': int(cuentaventa),
+                    'tax_ids': [int(impuesto)],
+                    'tax_line_id': int(impuesto),
                     'name': item['Linea']['Detalle'],
                     'journal_id': journal,
                     'exclude_from_invoice_tab': True,
@@ -2824,7 +2825,8 @@ def ventas():
                     'price_subtotal': 0.0,
                     'price_total': 0.0,
                     'reconciled': False,
-                    'blocked': False
+                    'blocked': False,
+                    'partner_id': int(id)
                 }
                 # Inserción de la nueva línea dentro de la factura mediante la función en venta
                 print(venta.linea(new_line))
