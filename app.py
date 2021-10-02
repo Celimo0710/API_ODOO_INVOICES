@@ -282,10 +282,10 @@ def compras():
             print("Error al capturar ID de proveedor")
         # Objeto json para la estructura de la factura
         new_invoice = {
-            'name': request.json[0]['FacturaCompra']['Clave'],
+            'name': request.json[0]['FacturaCompra']['ClaveCATEC'],
             'date': request.json[0]['FacturaCompra']['FechaEmision'],
-            'ref': request.json[0]['FacturaCompra']['CodigoActividad'],
-            'narration': request.json[0]['FacturaCompra']['NumeroConsecutivo'],
+            'ref': request.json[0]['FacturaCompra']['NumeroConsecutivo'],
+            'narration': request.json[0]['FacturaCompra']['Clave'],
             'state': "draft",
             'type': "in_invoice",
             'type_name': "Invoice",
@@ -2302,10 +2302,10 @@ def ventas():
             print("Error al capturar ID de cliente")
         # Objeto json para la estructura de la factura
         new_invoice = {
-            'name': request.json[0]['FacturaVenta']['Clave'],
+            'name': request.json[0]['FacturaVenta']['ClaveCATEC'],
             'date': request.json[0]['FacturaVenta']['FechaEmision'],
-            'ref': request.json[0]['FacturaVenta']['CodigoActividad'],
-            'narration': request.json[0]['FacturaVenta']['NumeroConsecutivo'],
+            'ref': request.json[0]['FacturaVenta']['NumeroConsecutivo'],
+            'narration': request.json[0]['FacturaVenta']['Clave'],
             'state': "draft",
             'type': "out_invoice",
             'type_name': "Invoice",

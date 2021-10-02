@@ -131,7 +131,7 @@ def factura(factura):
         # no_extract_requested, not_enough_credit, waiting_extraction, error_status, extract_not_ready, waiting_validation, done
         extract_state = factura['extract_state']
         new_invoice = models.execute_kw(db, uid, password, 'account.move', 'create', [{'name': name, 'date': date, 'invoice_date': date, 'ref': ref, 'narration': narration, 'state': state, 'type': type, 'type_name': type_name, 'to_check': to_check, 'company_id': company_id,
-                                        "partner_id": partner_id, 'invoice_line_ids': invoice_line_ids, 'commercial_partner_id': partner_id, 'partner_shipping_id': partner_id, 'partner_shipping_id': partner_id, 'invoice_partner_display_name': partner_id, "extract_state": extract_state, }])
+                                        "partner_id": partner_id, 'invoice_line_ids': invoice_line_ids, 'commercial_partner_id': partner_id, 'partner_shipping_id': partner_id, 'partner_shipping_id': partner_id, 'invoice_partner_display_name': partner_id, "extract_state": extract_state}])
         print("Factura creada...", new_invoice)
         return (new_invoice)
     except:
