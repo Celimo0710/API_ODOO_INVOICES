@@ -207,47 +207,47 @@ def compras():
             if request.json[0]['FacturaCompra']['Emisor']['Ubicacion']['Canton'] == "06":
                 canton = "GUACIMO"
         # Validación de las entradas con el identificador de las empresas
-        if request.json[0]['FacturaCompra']['Receptor']['codigosede'] == "CTPZ":
+        if request.json[0]['FacturaCompra']['Receptor']['Nombre'] == "CTPZ":
             empresa_id = 6
             journal = 9
             empresa_nombre = "Corporación Académica Tecnológica CR PZ S.A."
-        if request.json[0]['FacturaCompra']['Receptor']['codigosede'] == "EHLB":
+        if request.json[0]['FacturaCompra']['Receptor']['Nombre'] == "EHLB":
             empresa_id = 9
             journal = 86
             empresa_nombre = "CATEC Libería"
-        if request.json[0]['FacturaCompra']['Receptor']['codigosede'] == "EHSC":
+        if request.json[0]['FacturaCompra']['Receptor']['Nombre'] == "EHSC":
             empresa_id = 11
             journal = 100
             empresa_nombre = "CATEC Santa Cruz"
-        if request.json[0]['FacturaCompra']['Receptor']['codigosede'] == "GTGF":
+        if request.json[0]['FacturaCompra']['Receptor']['Nombre'] == "GTGF":
             empresa_id = 8
             journal = 37
             empresa_nombre = "CATEC Golfito"
-        if request.json[0]['FacturaCompra']['Receptor']['codigosede'] == "EHNC":
+        if request.json[0]['FacturaCompra']['Receptor']['Nombre'] == "EHNC":
             empresa_id = 10
             journal = 93
             empresa_nombre = "CATEC Nicoya"
-        if request.json[0]['FacturaCompra']['Receptor']['codigosede'] == "CTCN":
+        if request.json[0]['FacturaCompra']['Receptor']['Nombre'] == "CTCN":
             empresa_id = 7
             journal = 30
             empresa_nombre = "CATEC Ciudad Nelly"
-        if request.json[0]['FacturaCompra']['Receptor']['codigosede'] == "CDECT":
+        if request.json[0]['FacturaCompra']['Receptor']['Nombre'] == "CDECT":
             empresa_id = 13
             journal = 58
             empresa_nombre = "CDE Cartago"
-        if request.json[0]['FacturaCompra']['Receptor']['codigosede'] == "CDELB":
+        if request.json[0]['FacturaCompra']['Receptor']['Nombre'] == "CDELB":
             empresa_id = 14
             journal = 65
             empresa_nombre = "CDE Liberia"
-        if request.json[0]['FacturaCompra']['Receptor']['codigosede'] == "CDELM":
+        if request.json[0]['FacturaCompra']['Receptor']['Nombre'] == "CDELM":
             empresa_id = 15
             journal = 72
             empresa_nombre = "CDE Limón"
-        if request.json[0]['FacturaCompra']['Receptor']['codigosede'] == "CTCG":
+        if request.json[0]['FacturaCompra']['Receptor']['Nombre'] == "CTCG":
             empresa_id = 4
             journal = 16
             empresa_nombre = "CATEC Cartago"
-        if request.json[0]['FacturaCompra']['Receptor']['codigosede'] == "CTLM":
+        if request.json[0]['FacturaCompra']['Receptor']['Nombre'] == "CTLM":
             empresa_id = 5
             journal = 23
             empresa_nombre = "CATEC Limón"
