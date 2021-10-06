@@ -149,7 +149,7 @@ def linea(producto):
         journal_id = producto['journal_id']
         exclude_from_invoice_tab = producto['exclude_from_invoice_tab']
         debit = producto['debit']
-        credit = producto['price_subtotal']#producto['credit']
+        credit = producto['credit']#producto['credit']
         discount = producto['discount']
         balance = producto['balance']
         amount_currency = producto['amount_currency']
@@ -158,7 +158,7 @@ def linea(producto):
         reconciled = producto['reconciled']
         blocked = producto['blocked']
         partner_id = producto['partner_id']
-        new_line = models.execute_kw(db, uid, password, 'account.move.line', 'create', [{'move_id': move_id, 'account_id': account_id, 'name': name, 'credit': 100, 'debit': debit}])
+        new_line = models.execute_kw(db, uid, password, 'account.move.line', 'create', [{'move_id': move_id, 'account_id': account_id, 'product_id': product_id, 'partner_id': partner_id, 'name': name, 'credit': credit, 'quantity': quantity, 'price_unit': price_unit}])
         return ("Línea creada... ", new_line)
     except:
         return ("Línea no fue creada... ", producto)

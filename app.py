@@ -2383,11 +2383,11 @@ def ventas():
                         if item['Linea']['Tipo'] == 'service':
                             impuesto = cons.IMPV24
                     # Cuenta Contable
-                    if item['Linea']['Cuenta'] == "1":
+                    if item['Linea']['Cuenta'] == "MA":
                         cuentaventa = cons.PCI41
-                    if item['Linea']['Cuenta'] == "2":
+                    if item['Linea']['Cuenta'] == "ME":
                         cuentaventa = cons.PCI42
-                    if item['Linea']['Cuenta'] == "3":
+                    if item['Linea']['Cuenta'] == "P":
                         cuentaventa = cons.PCI43
                     if item['Linea']['Cuenta'] == "4":
                         cuentaventa = cons.PCI44
@@ -2423,11 +2423,11 @@ def ventas():
                             impuesto = cons.IMPV93
                         if item['Linea']['Tipo'] == 'service':
                             impuesto = cons.IMPV94
-                    if item['Linea']['Cuenta'] == "1":
+                    if item['Linea']['Cuenta'] == "MA":
                         cuentaventa = cons.PCI121
-                    if item['Linea']['Cuenta'] == "2":
+                    if item['Linea']['Cuenta'] == "ME":
                         cuentaventa = cons.PCI122
-                    if item['Linea']['Cuenta'] == "3":
+                    if item['Linea']['Cuenta'] == "PE":
                         cuentaventa = cons.PCI123
                     if item['Linea']['Cuenta'] == "4":
                         cuentaventa = cons.PCI124
@@ -2463,11 +2463,11 @@ def ventas():
                             impuesto = cons.IMPV1103
                         if item['Linea']['Tipo'] == 'service':
                             impuesto = cons.IMPV1104
-                    if item['Linea']['Cuenta'] == "1":
+                    if item['Linea']['Cuenta'] == "MA":
                         cuentaventa = cons.PCI121
-                    if item['Linea']['Cuenta'] == "2":
+                    if item['Linea']['Cuenta'] == "ME":
                         cuentaventa = cons.PCI122
-                    if item['Linea']['Cuenta'] == "3":
+                    if item['Linea']['Cuenta'] == "PE":
                         cuentaventa = cons.PCI123
                     if item['Linea']['Cuenta'] == "4":
                         cuentaventa = cons.PCI124
@@ -2503,11 +2503,11 @@ def ventas():
                             impuesto = cons.IMPV53
                         if item['Linea']['Tipo'] == 'service':
                             impuesto = cons.IMPV54
-                    if item['Linea']['Cuenta'] == "1":
+                    if item['Linea']['Cuenta'] == "ME":
                         cuentaventa = cons.PCI141
-                    if item['Linea']['Cuenta'] == "2":
+                    if item['Linea']['Cuenta'] == "MA":
                         cuentaventa = cons.PCI142
-                    if item['Linea']['Cuenta'] == "3":
+                    if item['Linea']['Cuenta'] == "PE":
                         cuentaventa = cons.PCI143
                     if item['Linea']['Cuenta'] == "4":
                         cuentaventa = cons.PCI144
@@ -2543,11 +2543,11 @@ def ventas():
                             impuesto = cons.IMPV103
                         if item['Linea']['Tipo'] == 'service':
                             impuesto = cons.IMPV104
-                    if item['Linea']['Cuenta'] == "1":
+                    if item['Linea']['Cuenta'] == "MA":
                         cuentaventa = cons.PCI131
-                    if item['Linea']['Cuenta'] == "2":
+                    if item['Linea']['Cuenta'] == "ME":
                         cuentaventa = cons.PCI132
-                    if item['Linea']['Cuenta'] == "3":
+                    if item['Linea']['Cuenta'] == "PE":
                         cuentaventa = cons.PCI133
                     if item['Linea']['Cuenta'] == "4":
                         cuentaventa = cons.PCI134
@@ -2583,11 +2583,11 @@ def ventas():
                             impuesto = cons.IMPV43
                         if item['Linea']['Tipo'] == 'service':
                             impuesto = cons.IMPV44
-                    if item['Linea']['Cuenta'] == "1":
+                    if item['Linea']['Cuenta'] == "ME":
                         cuentaventa = cons.PCI61
-                    if item['Linea']['Cuenta'] == "2":
+                    if item['Linea']['Cuenta'] == "MA":
                         cuentaventa = cons.PCI62
-                    if item['Linea']['Cuenta'] == "3":
+                    if item['Linea']['Cuenta'] == "PE":
                         cuentaventa = cons.PCI63
                     if item['Linea']['Cuenta'] == "4":
                         cuentaventa = cons.PCI64
@@ -2623,11 +2623,11 @@ def ventas():
                             impuesto = cons.IMPV63
                         if item['Linea']['Tipo'] == 'service':
                             impuesto = cons.IMPV64
-                    if item['Linea']['Cuenta'] == "1":
+                    if item['Linea']['Cuenta'] == "ME":
                         cuentaventa = cons.PCI91
-                    if item['Linea']['Cuenta'] == "2":
+                    if item['Linea']['Cuenta'] == "MA":
                         cuentaventa = cons.PCI92
-                    if item['Linea']['Cuenta'] == "3":
+                    if item['Linea']['Cuenta'] == "PE":
                         cuentaventa = cons.PCI93
                     if item['Linea']['Cuenta'] == "4":
                         cuentaventa = cons.PCI94
@@ -2663,11 +2663,11 @@ def ventas():
                             impuesto = cons.IMPV73
                         if item['Linea']['Tipo'] == 'service':
                             impuesto = cons.IMPV74
-                    if item['Linea']['Cuenta'] == "1":
+                    if item['Linea']['Cuenta'] == "MA":
                         cuentaventa = cons.PCI101
-                    if item['Linea']['Cuenta'] == "2":
+                    if item['Linea']['Cuenta'] == "ME":
                         cuentaventa = cons.PCI102
-                    if item['Linea']['Cuenta'] == "3":
+                    if item['Linea']['Cuenta'] == "PE":
                         cuentaventa = cons.PCI103
                     if item['Linea']['Cuenta'] == "4":
                         cuentaventa = cons.PCI104
@@ -2703,11 +2703,11 @@ def ventas():
                             impuesto = cons.IMPV83
                         if item['Linea']['Tipo'] == 'service':
                             impuesto = cons.IMPV84
-                    if item['Linea']['Cuenta'] == "1":
+                    if item['Linea']['Cuenta'] == "ME":
                         cuentaventa = cons.PCI111
-                    if item['Linea']['Cuenta'] == "2":
+                    if item['Linea']['Cuenta'] == "MA":
                         cuentaventa = cons.PCI112
-                    if item['Linea']['Cuenta'] == "3":
+                    if item['Linea']['Cuenta'] == "PE":
                         cuentaventa = cons.PCI113
                     if item['Linea']['Cuenta'] == "4":
                         cuentaventa = cons.PCI114
@@ -2743,11 +2743,11 @@ def ventas():
                             impuesto = cons.IMPV13
                         if item['Linea']['Tipo'] == 'service':
                             impuesto = cons.IMPV14
-                    if item['Linea']['Cuenta'] == "1":
+                    if item['Linea']['Cuenta'] == "ME":
                         cuentaventa = cons.PCI31
-                    if item['Linea']['Cuenta'] == "2":
+                    if item['Linea']['Cuenta'] == "MA":
                         cuentaventa = cons.PCI32
-                    if item['Linea']['Cuenta'] == "3":
+                    if item['Linea']['Cuenta'] == "PE":
                         cuentaventa = cons.PCI33
                     if item['Linea']['Cuenta'] == "4":
                         cuentaventa = cons.PCI34
@@ -2783,11 +2783,11 @@ def ventas():
                             impuesto = cons.IMPV33
                         if item['Linea']['Tipo'] == 'service':
                             impuesto = cons.IMPV34
-                    if item['Linea']['Cuenta'] == "1":
+                    if item['Linea']['Cuenta'] == "ME":
                         cuentaventa = cons.PCI51
-                    if item['Linea']['Cuenta'] == "2":
+                    if item['Linea']['Cuenta'] == "MA":
                         cuentaventa = cons.PCI52
-                    if item['Linea']['Cuenta'] == "3":
+                    if item['Linea']['Cuenta'] == "PE":
                         cuentaventa = cons.PCI53
                     if item['Linea']['Cuenta'] == "4":
                         cuentaventa = cons.PCI54
@@ -2819,11 +2819,11 @@ def ventas():
                     'journal_id': journal,
                     'exclude_from_invoice_tab': False,
                     'debit': 0.0,
-                    'credit': 0.0,
+                    'credit': float(item['Linea']['PrecioUnitario']),
                     'discount': 0.0,
                     'balance': 0.0,
                     'amount_currency': 0.0,
-                    'price_subtotal': 100.0,
+                    'price_subtotal': float(item['Linea']['SubTotal']),
                     'price_total': 0.0,
                     'reconciled': False,
                     'blocked': False,
