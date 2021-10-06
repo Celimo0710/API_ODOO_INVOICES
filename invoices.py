@@ -16,10 +16,10 @@ import ssl
 import xmlrpc.client
 from flask import jsonify
 # URL del servidor
-url = "https://desarrollossiacooprl-catec-test-3215387.dev.odoo.com"
+url = "https://corporacionatec.odoo.com"
 # Nombre de la base de datos
 # esta sería la base de datos que se muestra en el shell
-db = 'desarrollossiacooprl-catec-test-3215387'
+db = 'desarrollossiacooprl-catec-main-3190376'
 # Credenciales de acceso que crea los registros
 username = 'desarrollo@siacooprl.com'
 password = 'desarrollador'
@@ -128,7 +128,7 @@ def factura(factura):
         # no_extract_requested, not_enough_credit, waiting_extraction, error_status, extract_not_ready, waiting_validation, done
         extract_state = factura['extract_state']
         new_invoice = models.execute_kw(db, uid, password, 'account.move', 'create', [{'date': date, 'invoice_date': date, 'ref': ref, 'narration': narration, 'state': state, 'type': type, 'type_name': type_name, 'to_check': to_check, 'company_id': company_id,
-                                        "partner_id": partner_id, 'commercial_partner_id': partner_id, 'partner_shipping_id': partner_id, 'partner_shipping_id': partner_id, 'invoice_partner_display_name': partner_id, "extract_state": extract_state}])
+                                        "partner_id": partner_id, 'invoice_line_ids': invoice_line_ids, 'commercial_partner_id': partner_id, 'partner_shipping_id': partner_id, 'partner_shipping_id': partner_id, 'invoice_partner_display_name': partner_id, "extract_state": extract_state}])
         print("Factura creada...", new_invoice)
         return (new_invoice)
     except:
@@ -149,7 +149,7 @@ def linea(producto):
         journal_id = producto['journal_id']
         exclude_from_invoice_tab = producto['exclude_from_invoice_tab']
         debit = producto['debit']
-        credit = producto['credit']
+        credit = producto['price_subtotal']#producto['credit']
         discount = producto['discount']
         balance = producto['balance']
         amount_currency = producto['amount_currency']
@@ -158,10 +158,10 @@ def linea(producto):
         reconciled = producto['reconciled']
         blocked = producto['blocked']
         partner_id = producto['partner_id']
-        new_line = models.execute_kw(db, uid, password, 'account.move.line', 'create', [{'move_id': move_id, 'account_id': account_id, 'partner_id': partner_id, 'name': name, 'credit': credit, 'quantity': quantity, 'price_unit': price_unit, 'tax_ids': tax_ids}])
+        new_line = models.execute_kw(db, uid, password, 'account.move.line', 'create', [{'move_id': move_id, 'account_id': account_id, 'name': name, 'credit': 100, 'debit': debit}])
         return ("Línea creada... ", new_line)
     except:
-        return ("Línea no fue creada... ")
+        return ("Línea no fue creada... ", producto)
 
 def usuario(companyid):
     try:

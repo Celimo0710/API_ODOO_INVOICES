@@ -16,10 +16,10 @@ import ssl
 import xmlrpc.client
 from flask import jsonify
 # URL del servidor
-url = "https://desarrollossiacooprl-catec-test-3215387.dev.odoo.com"
+url = "https://corporacionatec.odoo.com"
 # Nombre de la base de datos
 # esta sería la base de datos que se muestra en el shell
-db = 'desarrollossiacooprl-catec-test-3215387'
+db = 'desarrollossiacooprl-catec-main-3190376'
 # Credenciales de acceso que crea los registros
 username = 'desarrollo@siacooprl.com'
 password = 'desarrollador'

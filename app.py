@@ -253,6 +253,7 @@ def compras():
             empresa_nombre = "CATEC Limón"
         # Cambio de empresa del Usuario
         print(compra.usuario(int(empresa_id)))
+        compra.usuario(int(empresa_id))
         # Objeto json para la estructura del proveedor
         new_proveedor = {
             "name": request.json[0]['FacturaCompra']['Emisor']['Nombre'],
@@ -290,7 +291,7 @@ def compras():
             'type': "in_invoice",
             'type_name': "Invoice",
             'to_check': 'False',
-            'journal_id': journal,
+            'journal_id': int(journal),
             'company_id': int(empresa_id),
             "currency_id": [39, "CRC"],
             "invoice_line_ids": [],
@@ -2316,7 +2317,7 @@ def ventas():
             "currency_id": [39, "CRC"],
             "invoice_line_ids": [],
             "partner_id": int(id),
-            "extract_state": "waiting_validation"
+            "extract_state": "no_extract_requested"
         }
         # Crea la factura utilizando la estructura de new_invoice y devuelve el número de factura
         try:
@@ -2382,29 +2383,29 @@ def ventas():
                         if item['Linea']['Tipo'] == 'service':
                             impuesto = cons.IMPV24
                     # Cuenta Contable
-                    if item['Linea']['Cuenta'] == "4.1.01":
+                    if item['Linea']['Cuenta'] == "1":
                         cuentaventa = cons.PCI41
-                    if item['Linea']['Cuenta'] == "4.1.02":
+                    if item['Linea']['Cuenta'] == "2":
                         cuentaventa = cons.PCI42
-                    if item['Linea']['Cuenta'] == "4.2.01":
+                    if item['Linea']['Cuenta'] == "3":
                         cuentaventa = cons.PCI43
-                    if item['Linea']['Cuenta'] == "4.2.02":
+                    if item['Linea']['Cuenta'] == "4":
                         cuentaventa = cons.PCI44
-                    if item['Linea']['Cuenta'] == "4.2.03":
+                    if item['Linea']['Cuenta'] == "5":
                         cuentaventa = cons.PCI45
-                    if item['Linea']['Cuenta'] == "4.3.01":
+                    if item['Linea']['Cuenta'] == "6":
                         cuentaventa = cons.PCI46
-                    if item['Linea']['Cuenta'] == "4.5.01":
+                    if item['Linea']['Cuenta'] == "7":
                         cuentaventa = cons.PCI47
-                    if item['Linea']['Cuenta'] == "4.5.02":
+                    if item['Linea']['Cuenta'] == "8":
                         cuentaventa = cons.PCI48
-                    if item['Linea']['Cuenta'] == "4.5.03":
+                    if item['Linea']['Cuenta'] == "9":
                         cuentaventa = cons.PCI49
-                    if item['Linea']['Cuenta'] == "4.7.01":
+                    if item['Linea']['Cuenta'] == "10":
                         cuentaventa = cons.PCI410
-                    if item['Linea']['Cuenta'] == "4.7.02":
+                    if item['Linea']['Cuenta'] == "11":
                         cuentaventa = cons.PCI411
-                    if item['Linea']['Cuenta'] == "4.9.01":
+                    if item['Linea']['Cuenta'] == "12":
                         cuentaventa = cons.PCI412
                 if empresa_id == 9:
                     if item['Linea']['Impuesto']['CodigoTarifa'] == '08':
@@ -2816,13 +2817,13 @@ def ventas():
                     'tax_line_id': int(impuesto),
                     'name': item['Linea']['Detalle'],
                     'journal_id': journal,
-                    'exclude_from_invoice_tab': True,
+                    'exclude_from_invoice_tab': False,
                     'debit': 0.0,
                     'credit': 0.0,
                     'discount': 0.0,
                     'balance': 0.0,
                     'amount_currency': 0.0,
-                    'price_subtotal': 0.0,
+                    'price_subtotal': 100.0,
                     'price_total': 0.0,
                     'reconciled': False,
                     'blocked': False,
