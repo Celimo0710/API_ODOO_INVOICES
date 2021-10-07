@@ -126,12 +126,12 @@ def factura(factura):
         type_name = factura['type_name']
         to_check = factura['to_check']
         company_id = factura['company_id']  # res.company
-        invoice_line_ids = factura['invoice_line_ids']  # account.move.line
+        # invoice_line_ids = factura['invoice_line_ids']  # account.move.line
         partner_id = factura['partner_id']  # res.partner
         # no_extract_requested, not_enough_credit, waiting_extraction, error_status, extract_not_ready, waiting_validation, done
         extract_state = factura['extract_state']
         new_invoice = models.execute_kw(db, uid, password, 'account.move', 'create', [{'date': date, 'invoice_date': date, 'ref': ref, 'narration': narration, 'state': state, 'type': type, 'type_name': type_name, 'to_check': to_check, 'company_id': company_id,
-                                        "partner_id": partner_id, 'invoice_line_ids': invoice_line_ids, 'commercial_partner_id': partner_id, 'partner_shipping_id': partner_id, 'partner_shipping_id': partner_id, 'invoice_partner_display_name': partner_id, "extract_state": extract_state}])
+                                        "partner_id": partner_id, 'commercial_partner_id': partner_id, 'partner_shipping_id': partner_id, 'partner_shipping_id': partner_id, 'invoice_partner_display_name': partner_id, "extract_state": extract_state}])
         print("Factura creada...", new_invoice)
         return (new_invoice)
     except:
@@ -161,10 +161,16 @@ def linea(producto):
         reconciled = producto['reconciled']
         blocked = producto['blocked']
         partner_id = producto['partner_id']
-        new_line = models.execute_kw(db, uid, password, 'account.move.line', 'create', [{'move_id': move_id, 'account_id': account_id, 'product_id': product_id, 'partner_id': partner_id, 'name': name, 'credit': credit, 'quantity': quantity, 'price_unit': price_unit, 'tax_ids': tax_ids}])
-        return ("Línea creada... ", new_line)
+        print(producto)
+        models.execute_kw(db, uid, password, 'account.move.line', 'create', [
+                          {'move_id': move_id, 'name': name}])
+        #models.execute_kw(db, uid, password, 'account.move.line', 'create', [
+        #                  {'move_id': move_id, 'product_id': product_id, 'name': name, 'account_id': account_id, 'journal_id': journal_id, 'partner_id': partner_id, 'quantity': quantity, 'price_unit': price_unit, 'tax_ids': tax_ids, 'price_subtotal': price_subtotal}])
+        return ("Línea creada... ")
     except:
         return ("Línea no fue creada... ")
+
+
 
 
 def usuario(companyid):

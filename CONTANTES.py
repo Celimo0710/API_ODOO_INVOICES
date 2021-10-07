@@ -163,7 +163,7 @@ PCE473 = 65 #Gastos por Diferencial cambiario
 PCE474 = 1398 #Intereses deudas CP y LP
 PCE475 = 1399 #Gastos por Arrendamiento de Leasing
 PCE476 = 1400 #GASTOS NO DEDUCIBLES
-PCI41 = 55 #Ingresos por Servicios Educativos
+PCI41 = 55 #Ingresos por Matriculas INA Educacion
 PCI42 = 1308 #Ingresos por Servicios Asesoría CDE
 PCI43 = 1309 #Ingresos por Servicios Educativos
 PCI44 = 1310 #Ingresos por Servicios Asesoría PYMES
@@ -175,6 +175,17 @@ PCI49 = 56 #Ingresos por Diferencial cambiario
 PCI410 = 1315 #Utilidad en venta de activos
 PCI411 = 1316 #Ajuste saldos de mayor
 PCI412 = 1317 #Ingresos no gravables
+PCI413 = 9618 #Ingresos por Matriculas INA Educacion
+PCI414 = 9619 #Ingresos por Paquete Educativo INA Educacion
+PCI415 = 9621 #Ingresos por Matricula CATEC
+PCI416 = 9622 #Ingresos por Mensualidades CATEC
+PCI417 = 9623 #Ingresos por Paquete Educativo CATEC
+PCI418 = 9625 #Ingresos por Matriculas  EMPLEATE MTSS
+PCI419 = 9626 #Ingresos por Mensualidades EMPLEATE MTSS
+PCI420 = 9627 #Ingresos por Paquete Educativo EMPLEATE MTSS
+PCI421 = 9628 #Ingresos por Matriculas  PRONAE MTSS
+PCI422 = 9629 #Ingresos por Mensualidades PRONAE MTSS
+PCI423 = 9630 #Ingresos por Paquete Educativo PRONAE MTSS
 #CATEC Limón
 PCE51 = 132 #Salarios
 PCE52 = 2832 #Vacaciones
@@ -982,7 +993,16 @@ PCI1412 = 7552 #Ingresos no gravables
 #Estudio HOY KTC
 PCE15 = 420
 PCI15 = 415
-
+#IMPUESTOS DE VENTA (PASIVOS CIRCULANTES)
+IV21 = 50 #Impuesto al valor agregado cobrado al 13% DEVENGADO
+IV22 = 1266 #Impuesto al valor agregado cobrado al 2% DEVENGADO
+IV23 = 51 #Impuesto al valor agregado pagado al 13% SOPORTADO
+IV24 = 1267 #Impuesto al valor agregado pagado al 4% SOPORTADO
+IV25 = 1268 #Impuesto al valor agregado pagado al 2% SOPORTADO
+IV26 = 1269 #Impuesto al valor agregado pagado al 1% SOPORTADO
+IV27 = 1270 #Impuesto de renta por pagar
+IV28 = 1271 #Adelantos de impuesto de renta
+IV29 = 1272 #Retenciones de impuesto de renta
 #IMPUESTOS
 #CATEC CARTAGO
 IMPC11 = 6 #IVA - Compra Mercaderias 13%

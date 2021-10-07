@@ -283,7 +283,7 @@ def compras():
             print("Error al capturar ID de proveedor")
         # Objeto json para la estructura de la factura
         new_invoice = {
-            #'name': request.json[0]['FacturaCompra']['ClaveCATEC'],
+            # 'name': request.json[0]['FacturaCompra']['ClaveCATEC'],
             'date': request.json[0]['FacturaCompra']['FechaEmision'],
             'ref': request.json[0]['FacturaCompra']['ClaveCATEC'],
             'narration': request.json[0]['FacturaCompra']['NumeroConsecutivo'],
@@ -294,9 +294,9 @@ def compras():
             'journal_id': int(journal),
             'company_id': int(empresa_id),
             "currency_id": [39, "CRC"],
-            "invoice_line_ids": [],
+            # "invoice_line_ids": [],
             "partner_id": int(id),
-            "extract_state": "waiting_validation"
+            "extract_state": "no_extract_requested"
         }
         # Crea la factura utilizando la estructura de new_invoice y devuelve el número de factura
         try:
@@ -317,7 +317,7 @@ def compras():
                 'lst_price': item['Linea']['PrecioUnitario'],
                 'type': item['Linea']['Tipo']
             }
-            #'name': item['Linea']['Detalle'],
+            # 'name': item['Linea']['Detalle'],
             #    'description': item['Linea']['Detalle'],
             #    'default_code': item['Linea']['CodigoCabys'],
             #    'list_price': item['Linea']['PrecioUnitario'],
@@ -2012,18 +2012,19 @@ def compras():
                     'product_id': id_producto,
                     'quantity': float(item['Linea']['Cantidad']),
                     'price_unit': float(item['Linea']['PrecioUnitario']),
-                    'account_id': int(cuenta),  # Apunte Contable, se debe colocar depende de la empresa
+                    # Apunte Contable, se debe colocar depende de la empresa
+                    'account_id': int(cuenta),
                     'tax_ids': [int(impuesto)],
                     'tax_line_id': int(impuesto),
                     'name': item['Linea']['Detalle'],
-                    'journal_id': journal,
+                    'journal_id': int(journal),
                     'exclude_from_invoice_tab': False,
-                    'debit': 0.0,
-                    'credit': 0.0,
+                    'debit': float(item['Linea']['MontoTotalLinea']),
+                    'credit': float(item['Linea']['MontoTotalLinea']),
                     'discount': 0.0,
                     'balance': 0.0,
-                    'amount_currency': 0.0,
-                    'price_subtotal': 0.0,
+                    'amount_currency': float(item['Linea']['MontoTotalLinea']),
+                    'price_subtotal': float(item['Linea']['SubTotal']),
                     'price_total': 0.0,
                     'reconciled': False,
                     'blocked': False,
@@ -2304,7 +2305,7 @@ def ventas():
             print("Error al capturar ID de cliente")
         # Objeto json para la estructura de la factura
         new_invoice = {
-            #'name': request.json[0]['FacturaVenta']['ClaveCATEC'],
+            # 'name': request.json[0]['FacturaVenta']['ClaveCATEC'],
             'date': request.json[0]['FacturaVenta']['FechaEmision'],
             'ref': request.json[0]['FacturaVenta']['ClaveCATEC'],
             'narration': request.json[0]['FacturaVenta']['NumeroConsecutivo'],
@@ -2341,7 +2342,7 @@ def ventas():
             # Validación si el producto existe dentro de la base de datos para no sobreescribirlo
             # Hace una comparación de los nombres dentro de la base de datos, si este no existe,
             # crea un nuevo registro, no actualiza los datos. -----------------------------------
-            #'name': item['Linea']['Cuenta'],
+            # 'name': item['Linea']['Cuenta'],
             #    'description': item['Linea']['Detalle'],
             #    'default_code': item['Linea']['CodigoCabys'],
             #    'list_price': item['Linea']['PrecioUnitario'],
@@ -2365,6 +2366,8 @@ def ventas():
                 # automáticamente los montos y totales por cantidad y precio unitario.
                 # Declaración de impuestos
                 impuesto = 1
+                nombre_impuesto = "IVA - Venta Mercaderias 13%"
+                pasivo_circulante = 50
                 cuentaventa = 19
                 if empresa_id == 6:
                     if item['Linea']['Impuesto']['CodigoTarifa'] == '08':
@@ -2372,22 +2375,28 @@ def ventas():
                             impuesto = cons.IMPV21
                         if item['Linea']['Tipo'] == 'service':
                             impuesto = cons.IMPV22
+                        pasivo_circulante = cons.IV21
+                        nombre_impuesto = "IVA - Venta Mercaderias 13%"
                     if item['Linea']['Impuesto']['CodigoTarifa'] == '01':
                         if item['Linea']['Tipo'] == 'consu':
                             impuesto = cons.IMPV25
                         if item['Linea']['Tipo'] == 'service':
                             impuesto = cons.IMPV26
+                        pasivo_circulante = cons.IV21
+                        nombre_impuesto = "IVA - Venta Mercaderias 0%"
                     if item['Linea']['Impuesto']['CodigoTarifa'] == '03':
                         if item['Linea']['Tipo'] == 'consu':
                             impuesto = cons.IMPV23
                         if item['Linea']['Tipo'] == 'service':
                             impuesto = cons.IMPV24
+                        pasivo_circulante = cons.IV22
+                        nombre_impuesto = "IVA - Venta Mercaderias 2%"
                     # Cuenta Contable
-                    if item['Linea']['Cuenta'] == "MA":
+                    if item['Linea']['Cuenta'] == "1":
                         cuentaventa = cons.PCI41
-                    if item['Linea']['Cuenta'] == "ME":
+                    if item['Linea']['Cuenta'] == "2":
                         cuentaventa = cons.PCI42
-                    if item['Linea']['Cuenta'] == "P":
+                    if item['Linea']['Cuenta'] == "3":
                         cuentaventa = cons.PCI43
                     if item['Linea']['Cuenta'] == "4":
                         cuentaventa = cons.PCI44
@@ -2407,6 +2416,28 @@ def ventas():
                         cuentaventa = cons.PCI411
                     if item['Linea']['Cuenta'] == "12":
                         cuentaventa = cons.PCI412
+                    if item['Linea']['Cuenta'] == "13":
+                        cuentaventa = cons.PCI413
+                    if item['Linea']['Cuenta'] == "14":
+                        cuentaventa = cons.PCI414
+                    if item['Linea']['Cuenta'] == "15":
+                        cuentaventa = cons.PCI415
+                    if item['Linea']['Cuenta'] == "MA":
+                        cuentaventa = cons.PCI416
+                    if item['Linea']['Cuenta'] == "ME":
+                        cuentaventa = cons.PCI417
+                    if item['Linea']['Cuenta'] == "PE":
+                        cuentaventa = cons.PCI418
+                    if item['Linea']['Cuenta'] == "MAEMPLEATE":
+                        cuentaventa = cons.PCI419
+                    if item['Linea']['Cuenta'] == "MEEMPLEATE":
+                        cuentaventa = cons.PCI420
+                    if item['Linea']['Cuenta'] == "16":
+                        cuentaventa = cons.PCI421
+                    if item['Linea']['Cuenta'] == "17":
+                        cuentaventa = cons.PCI422
+                    if item['Linea']['Cuenta'] == "18":
+                        cuentaventa = cons.PCI423
                 if empresa_id == 9:
                     if item['Linea']['Impuesto']['CodigoTarifa'] == '08':
                         if item['Linea']['Tipo'] == 'consu':
@@ -2807,30 +2838,34 @@ def ventas():
                         cuentaventa = cons.PCI511
                     if item['Linea']['Cuenta'] == "12":
                         cuentaventa = cons.PCI512
-                new_line = {
+                new_line_tax = {
                     'move_id': id_factura,
-                    'product_id': id_producto,
-                    'quantity': float(item['Linea']['Cantidad']),
-                    'price_unit': float(item['Linea']['PrecioUnitario']),
-                    'account_id': int(cuentaventa),
-                    'tax_ids': [int(impuesto)],
+                    'move_name': '/',
+                    'product_id': False,
+                    'quantity': 1.0,
+                    'price_unit': float(item['Linea']['Impuesto']['Monto']),
+                    'account_id': int(pasivo_circulante),
+                    'tax_ids': [],
                     'tax_line_id': int(impuesto),
-                    'name': item['Linea']['Detalle'],
-                    'journal_id': journal,
-                    'exclude_from_invoice_tab': False,
+                    'name': nombre_impuesto,
+                    'journal_id': int(journal),
+                    'exclude_from_invoice_tab': True,
                     'debit': 0.0,
-                    'credit': float(item['Linea']['PrecioUnitario']),
+                    'credit': float(item['Linea']['Impuesto']['Monto']),
                     'discount': 0.0,
-                    'balance': 0.0,
+                    'balance': -float(item['Linea']['Impuesto']['Monto']),
                     'amount_currency': 0.0,
-                    'price_subtotal': float(item['Linea']['SubTotal']),
-                    'price_total': 0.0,
+                    'price_subtotal': float(item['Linea']['Impuesto']['Monto']),
+                    'price_total': float(item['Linea']['Impuesto']['Monto']),
                     'reconciled': False,
                     'blocked': False,
-                    'partner_id': int(id)
+                    'partner_id': int(id),
+                    'company_id': int(empresa_id),
+                    'company_currency_id': 39,
+                    'tax_group_id': 1
                 }
                 # Inserción de la nueva línea dentro de la factura mediante la función en venta
-                print(venta.linea(new_line))
+                print(venta.linea_tax(new_line_tax))
             except:
                 print("No se creó la linea")
         # Factura OK

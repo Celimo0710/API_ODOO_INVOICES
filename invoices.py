@@ -163,6 +163,45 @@ def linea(producto):
     except:
         return ("Línea no fue creada... ", producto)
 
+def linea_tax(producto):
+    try:
+        move_id = producto['move_id']
+        move_name = producto['move_name']
+        product_id = producto['product_id']
+        quantity = producto['quantity']
+        price_unit = producto['price_unit']
+        account_id = producto['account_id']
+        tax_ids = producto['tax_ids']
+        tax_line_id = producto['tax_line_id']
+        name = producto['name']
+        journal_id = producto['journal_id']
+        exclude_from_invoice_tab = producto['exclude_from_invoice_tab']
+        debit = producto['debit']
+        credit = producto['credit']
+        discount = producto['discount']
+        balance = producto['balance']
+        amount_currency = producto['amount_currency']
+        price_subtotal = producto['price_subtotal']
+        price_total = producto['price_total']
+        reconciled = producto['reconciled']
+        blocked = producto['blocked']
+        partner_id = producto['partner_id']
+        company_id = producto['company_id']
+        company_currency_id = producto['company_currency_id']
+        tax_group_id = producto['tax_group_id']
+        print(producto)
+        """tax = models.execute_kw(db, uid, password, 'account.move.line', 'create', [
+                          {'move_id': move_id, 'move_name': move_name, 'product_id': product_id, 'quantity': quantity, 
+                          'price_unit': price_unit, 'account_id': account_id, 'tax_ids': tax_ids, 'tax_line_id': tax_line_id,
+                          'name': name, 'journal_id': journal_id, 'exclude_from_invoice_tab': exclude_from_invoice_tab, 
+                          'debit': debit, 'credit': credit, 'discount': discount, 'balance': balance, 'amount_currency': amount_currency,
+                          'price_subtotal': price_subtotal, 'price_total': price_total, 'reconciled': reconciled, 'blocked': blocked,
+                          'partner_id': partner_id, 'company_id': company_id, 'company_currency_id': company_currency_id, 'tax_group_id': tax_group_id}])"""
+        tax = models.execute_kw(db, uid, password, 'account.move.line', 'create', [{'move_id': move_id, 'quantity': quantity, 'price_unit': price_unit, 'account_id': account_id, 'name': name, 'journal_id': journal_id, 'credit': credit, 'partner_id': partner_id, 'company_id': company_id}])
+        return ("Línea creada... ", tax)
+    except:
+        return ("Línea no fue creada... ")
+
 def usuario(companyid):
     try:
         usuario = models.execute_kw(db, uid, password, 'res.users', 'write', [[userid], {'company_id': companyid}])
